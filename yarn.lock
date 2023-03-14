@@ -1487,6 +1487,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@chainsafe/as-sha256@npm:^0.3.1":
   version: 0.3.1
   resolution: "@chainsafe/as-sha256@npm:0.3.1"
@@ -1514,6 +1515,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "@emotion/is-prop-valid@npm:^0.8.8":
   version: 0.8.8
   resolution: "@emotion/is-prop-valid@npm:0.8.8"
@@ -1589,6 +1592,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@ethereumjs/common@npm:^3.1.1":
   version: 3.1.1
   resolution: "@ethereumjs/common@npm:3.1.1"
@@ -1893,6 +1897,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "@gar/promisify@npm:^1.1.3":
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
@@ -2393,6 +2399,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@metamask/approval-controller@npm:^2.0.0":
   version: 2.0.0
   resolution: "@metamask/approval-controller@npm:2.0.0"
@@ -2406,6 +2413,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "@metamask/auto-changelog@npm:^2.6.0":
   version: 2.6.1
   resolution: "@metamask/auto-changelog@npm:2.6.1"
@@ -2420,6 +2429,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@metamask/base-controller@npm:^2.0.0":
   version: 2.0.0
   resolution: "@metamask/base-controller@npm:2.0.0"
@@ -2452,6 +2462,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "@metamask/eslint-config-jest@npm:^10.0.0":
   version: 10.0.0
   resolution: "@metamask/eslint-config-jest@npm:10.0.0"
@@ -2501,6 +2513,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@metamask/key-tree@npm:^7.0.0":
   version: 7.0.0
   resolution: "@metamask/key-tree@npm:7.0.0"
@@ -2515,6 +2528,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "@metamask/object-multiplex@npm:^1.1.0":
   version: 1.2.0
   resolution: "@metamask/object-multiplex@npm:1.2.0"
@@ -2526,6 +2541,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@metamask/permission-controller@npm:^3.1.0":
   version: 3.1.0
   resolution: "@metamask/permission-controller@npm:3.1.0"
@@ -2546,6 +2562,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "@metamask/providers@npm:^10.2.0":
   version: 10.2.0
   resolution: "@metamask/providers@npm:10.2.0"
@@ -2606,6 +2624,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@metamask/rpc-methods@npm:^0.32.2":
   version: 0.32.2
   resolution: "@metamask/rpc-methods@npm:0.32.2"
@@ -2625,6 +2644,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "@metamask/safe-event-emitter@npm:^2.0.0":
   version: 2.0.0
   resolution: "@metamask/safe-event-emitter@npm:2.0.0"
@@ -2632,6 +2653,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@metamask/scure-bip39@npm:^2.1.0":
   version: 2.1.0
   resolution: "@metamask/scure-bip39@npm:2.1.0"
@@ -2655,6 +2677,21 @@ __metadata:
 "@metamask/snaps-cli@npm:^0.32.2":
   version: 0.32.2
   resolution: "@metamask/snaps-cli@npm:0.32.2"
+=======
+"@metamask/snaps-browserify-plugin@npm:^0.27.1":
+  version: 0.27.1
+  resolution: "@metamask/snaps-browserify-plugin@npm:0.27.1"
+  dependencies:
+    "@metamask/snaps-utils": ^0.27.1
+    convert-source-map: ^1.8.0
+  checksum: 1feade8f9a59785a203db02ef282d5fa56ad64e16208cfd95f2c994dccc0e5d63140f46719f19875c5eb1c2f95a4d55fe6be0133cd9a9f925fc048899c51d831
+  languageName: node
+  linkType: hard
+
+"@metamask/snaps-cli@npm:^0.27.1":
+  version: 0.27.1
+  resolution: "@metamask/snaps-cli@npm:0.27.1"
+>>>>>>> fb57fd1 (Initial commit)
   dependencies:
     "@babel/core": ^7.16.7
     "@babel/plugin-proposal-class-properties": ^7.16.7
@@ -2664,20 +2701,32 @@ __metadata:
     "@babel/plugin-transform-runtime": ^7.16.7
     "@babel/preset-env": ^7.16.7
     "@babel/preset-typescript": ^7.16.7
+<<<<<<< HEAD
     "@metamask/snaps-browserify-plugin": ^0.32.2
     "@metamask/snaps-utils": ^0.32.2
     "@metamask/utils": ^5.0.0
+=======
+    "@metamask/snaps-browserify-plugin": ^0.27.1
+    "@metamask/snaps-utils": ^0.27.1
+    "@metamask/utils": ^3.3.1
+>>>>>>> fb57fd1 (Initial commit)
     babelify: ^10.0.0
     browserify: ^17.0.0
     chokidar: ^3.5.2
     is-url: ^1.2.4
     serve-handler: ^6.1.5
+<<<<<<< HEAD
     ses: ^0.18.1
     superstruct: ^1.0.3
+=======
+    ses: ^0.17.0
+    superstruct: ^0.16.7
+>>>>>>> fb57fd1 (Initial commit)
     yargs: ^16.2.0
     yargs-parser: ^20.2.2
   bin:
     mm-snap: dist/main.js
+<<<<<<< HEAD
   checksum: da7d95dc67f23093deacd075c1803df8cb20735e1e37d11fec4aa0bb24e44026d51b7fe2851c1cdf0d327be9690f917dc1bebd5b827bb2776f5d2cffb21d03c1
   languageName: node
   linkType: hard
@@ -2727,11 +2776,48 @@ __metadata:
     "@metamask/snaps-registry": ^1.2.0
     "@metamask/snaps-ui": ^0.32.2
     "@metamask/utils": ^5.0.0
+=======
+  checksum: 0741389520fd09fd41218090d4743fb03e8314b2af3e77eecb2d78aebe42650e8cd6ad49484606871688e0074054b40104e9b543cc5ab5f82ad660774e3b63cd
+  languageName: node
+  linkType: hard
+
+"@metamask/snaps-types@npm:^0.27.1":
+  version: 0.27.1
+  resolution: "@metamask/snaps-types@npm:0.27.1"
+  dependencies:
+    "@metamask/providers": ^10.2.0
+    "@metamask/snaps-utils": ^0.27.1
+    "@metamask/utils": ^3.3.1
+  checksum: c1bd7eb16178c7dcf0f4ea000632b100361aa2d8d5ed21b5b73737eb9d09bb6f7d9f8b614f8d64bcc0548ecf749eb411dace96725014df1fd3d1cd05549773ba
+  languageName: node
+  linkType: hard
+
+"@metamask/snaps-ui@npm:^0.27.1":
+  version: 0.27.1
+  resolution: "@metamask/snaps-ui@npm:0.27.1"
+  dependencies:
+    "@metamask/utils": ^3.3.1
+    superstruct: ^0.16.7
+  checksum: bd068a251f2cecf39bb511c1b5d02e77c7b859f22bfc4b080775e9ecea0d59245c9448bfd17f15d2a801bc349c9b5a9957e4aa6a3b0140e6b27b28ac72f571b4
+  languageName: node
+  linkType: hard
+
+"@metamask/snaps-utils@npm:^0.27.1":
+  version: 0.27.1
+  resolution: "@metamask/snaps-utils@npm:0.27.1"
+  dependencies:
+    "@babel/core": ^7.18.6
+    "@babel/types": ^7.18.7
+    "@metamask/providers": ^10.2.1
+    "@metamask/snaps-ui": ^0.27.1
+    "@metamask/utils": ^3.3.1
+>>>>>>> fb57fd1 (Initial commit)
     "@noble/hashes": ^1.1.3
     "@scure/base": ^1.1.1
     cron-parser: ^4.5.0
     eth-rpc-errors: ^4.0.3
     fast-deep-equal: ^3.1.3
+<<<<<<< HEAD
     fast-json-stable-stringify: ^2.1.0
     rfdc: ^1.3.0
     semver: ^7.3.7
@@ -2739,6 +2825,14 @@ __metadata:
     superstruct: ^1.0.3
     validate-npm-package-name: ^5.0.0
   checksum: 3568fb79cff8283eacb6e1bd498e20191f2c7c6774675be372f5305a4b5275512d1ded2a9fb36c106a8b10c5cbf480f6a87cdacfc70baf642b9bf3094ee3aefa
+=======
+    rfdc: ^1.3.0
+    semver: ^7.3.7
+    ses: ^0.17.0
+    superstruct: ^0.16.7
+    validate-npm-package-name: ^5.0.0
+  checksum: 77b8102449471e834a02a92a8334dff88b186c81a2ecf3a3c46ef9c6ceca8ea588d0ccc24a0c22ef38a111decf7b2f7988d72dbaec088776e42c9153bf62ed13
+>>>>>>> fb57fd1 (Initial commit)
   languageName: node
   linkType: hard
 
@@ -2765,6 +2859,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+<<<<<<< HEAD
 "@metamask/types@npm:^1.1.0":
   version: 1.1.0
   resolution: "@metamask/types@npm:1.1.0"
@@ -2784,6 +2879,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "@metamask/utils@npm:^3.3.1":
   version: 3.3.1
   resolution: "@metamask/utils@npm:3.3.1"
@@ -2795,6 +2892,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@metamask/utils@npm:^5.0.0":
   version: 5.0.1
   resolution: "@metamask/utils@npm:5.0.1"
@@ -2808,6 +2906,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "@mischnic/json-sourcemap@npm:^0.1.0":
   version: 0.1.0
   resolution: "@mischnic/json-sourcemap@npm:0.1.0"
@@ -2870,6 +2970,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@noble/ed25519@npm:^1.6.0":
   version: 1.7.3
   resolution: "@noble/ed25519@npm:1.7.3"
@@ -2891,6 +2992,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "@noble/hashes@npm:^1.1.3":
   version: 1.1.3
   resolution: "@noble/hashes@npm:1.1.3"
@@ -2898,6 +3001,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@noble/hashes@npm:~1.1.1":
   version: 1.1.5
   resolution: "@noble/hashes@npm:1.1.5"
@@ -2912,6 +3016,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "@nodelib/fs.scandir@npm:2.1.5":
   version: 2.1.5
   resolution: "@nodelib/fs.scandir@npm:2.1.5"
@@ -3398,13 +3504,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@scure/base@npm:^1.0.0, @scure/base@npm:^1.1.1, @scure/base@npm:~1.1.0":
+=======
+"@scure/base@npm:^1.1.1":
+>>>>>>> fb57fd1 (Initial commit)
   version: 1.1.1
   resolution: "@scure/base@npm:1.1.1"
   checksum: b4fc810b492693e7e8d0107313ac74c3646970c198bbe26d7332820886fa4f09441991023ec9aa3a2a51246b74409ab5ebae2e8ef148bbc253da79ac49130309
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@scure/bip32@npm:1.1.5":
   version: 1.1.5
   resolution: "@scure/bip32@npm:1.1.5"
@@ -3426,6 +3537,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "@sideway/address@npm:^4.1.3":
   version: 4.1.4
   resolution: "@sideway/address@npm:4.1.4"
@@ -3490,6 +3603,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@spruceid/siwe-parser@npm:1.1.3":
   version: 1.1.3
   resolution: "@spruceid/siwe-parser@npm:1.1.3"
@@ -3499,6 +3613,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "@svgr/babel-plugin-add-jsx-attribute@npm:^6.3.1":
   version: 6.3.1
   resolution: "@svgr/babel-plugin-add-jsx-attribute@npm:6.3.1"
@@ -3785,6 +3901,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@types/bn.js@npm:^5.1.0":
   version: 5.1.1
   resolution: "@types/bn.js@npm:5.1.1"
@@ -3794,6 +3911,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "@types/cacheable-request@npm:^6.0.1":
   version: 6.0.2
   resolution: "@types/cacheable-request@npm:6.0.2"
@@ -3867,6 +3986,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@types/deep-freeze-strict@npm:^1.1.0":
   version: 1.1.0
   resolution: "@types/deep-freeze-strict@npm:1.1.0"
@@ -3874,6 +3994,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "@types/eslint-scope@npm:^3.7.3":
   version: 3.7.4
   resolution: "@types/eslint-scope@npm:3.7.4"
@@ -4108,6 +4230,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@types/pbkdf2@npm:^3.0.0":
   version: 3.1.0
   resolution: "@types/pbkdf2@npm:3.1.0"
@@ -4117,6 +4240,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "@types/prop-types@npm:*":
   version: 15.7.5
   resolution: "@types/prop-types@npm:15.7.5"
@@ -4179,6 +4304,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "@types/secp256k1@npm:^4.0.1":
   version: 4.0.3
   resolution: "@types/secp256k1@npm:4.0.3"
@@ -4188,6 +4314,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "@types/sharp@npm:^0.30.5":
   version: 0.30.5
   resolution: "@types/sharp@npm:0.30.5"
@@ -4918,6 +5046,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "apg-js@npm:^4.1.1":
   version: 4.1.3
   resolution: "apg-js@npm:4.1.3"
@@ -4925,6 +5054,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "append-field@npm:^1.0.0":
   version: 1.0.0
   resolution: "append-field@npm:1.0.0"
@@ -5465,7 +5596,11 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "base-x@npm:^3.0.2, base-x@npm:^3.0.8":
+=======
+"base-x@npm:^3.0.8":
+>>>>>>> fb57fd1 (Initial commit)
   version: 3.0.9
   resolution: "base-x@npm:3.0.9"
   dependencies:
@@ -5504,6 +5639,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "bech32@npm:1.1.4":
   version: 1.1.4
   resolution: "bech32@npm:1.1.4"
@@ -5511,6 +5647,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "better-opn@npm:^2.1.1":
   version: 2.1.1
   resolution: "better-opn@npm:2.1.1"
@@ -5545,6 +5683,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "blakejs@npm:^1.1.0":
   version: 1.2.1
   resolution: "blakejs@npm:1.2.1"
@@ -5552,6 +5691,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "bluebird@npm:^3.7.2":
   version: 3.7.2
   resolution: "bluebird@npm:3.7.2"
@@ -5559,6 +5700,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "bn.js@npm:4.11.6":
   version: 4.11.6
   resolution: "bn.js@npm:4.11.6"
@@ -5566,6 +5708,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "bn.js@npm:^4.0.0, bn.js@npm:^4.1.0, bn.js@npm:^4.11.9":
   version: 4.12.0
   resolution: "bn.js@npm:4.12.0"
@@ -5580,6 +5724,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "bn.js@npm:^5.1.2, bn.js@npm:^5.2.0, bn.js@npm:^5.2.1":
   version: 5.2.1
   resolution: "bn.js@npm:5.2.1"
@@ -5587,6 +5732,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "body-parser@npm:1.20.1":
   version: 1.20.1
   resolution: "body-parser@npm:1.20.1"
@@ -5706,7 +5853,11 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "browserify-aes@npm:^1.0.0, browserify-aes@npm:^1.0.4, browserify-aes@npm:^1.2.0":
+=======
+"browserify-aes@npm:^1.0.0, browserify-aes@npm:^1.0.4":
+>>>>>>> fb57fd1 (Initial commit)
   version: 1.2.0
   resolution: "browserify-aes@npm:1.2.0"
   dependencies:
@@ -5851,6 +6002,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "bs58@npm:^4.0.0":
   version: 4.0.1
   resolution: "bs58@npm:4.0.1"
@@ -5871,6 +6023,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "bser@npm:2.1.1":
   version: 2.1.1
   resolution: "bser@npm:2.1.1"
@@ -5904,6 +6058,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "buffer@npm:^6.0.3":
   version: 6.0.3
   resolution: "buffer@npm:6.0.3"
@@ -5914,6 +6069,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "buffer@npm:~5.2.1":
   version: 5.2.1
   resolution: "buffer@npm:5.2.1"
@@ -6122,6 +6279,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "case@npm:^1.6.3":
   version: 1.6.3
   resolution: "case@npm:1.6.3"
@@ -6129,6 +6287,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "caseless@npm:~0.12.0":
   version: 0.12.0
   resolution: "caseless@npm:0.12.0"
@@ -6764,6 +6924,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "crc-32@npm:^1.2.0":
   version: 1.2.2
   resolution: "crc-32@npm:1.2.2"
@@ -6773,6 +6934,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "create-ecdh@npm:^4.0.0":
   version: 4.0.4
   resolution: "create-ecdh@npm:4.0.4"
@@ -7220,6 +7383,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "deep-freeze-strict@npm:^1.1.1":
   version: 1.1.1
   resolution: "deep-freeze-strict@npm:1.1.1"
@@ -7227,6 +7391,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "deep-is@npm:^0.1.3":
   version: 0.1.4
   resolution: "deep-is@npm:0.1.4"
@@ -7659,7 +7825,11 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "elliptic@npm:6.5.4, elliptic@npm:^6.5.3, elliptic@npm:^6.5.4":
+=======
+"elliptic@npm:^6.5.3":
+>>>>>>> fb57fd1 (Initial commit)
   version: 6.5.4
   resolution: "elliptic@npm:6.5.4"
   dependencies:
@@ -8475,6 +8645,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "eth-ens-namehash@npm:^2.0.8":
   version: 2.0.8
   resolution: "eth-ens-namehash@npm:2.0.8"
@@ -8486,6 +8657,9 @@ __metadata:
   linkType: hard
 
 "eth-rpc-errors@npm:^4.0.0, eth-rpc-errors@npm:^4.0.2, eth-rpc-errors@npm:^4.0.3":
+=======
+"eth-rpc-errors@npm:^4.0.2, eth-rpc-errors@npm:^4.0.3":
+>>>>>>> fb57fd1 (Initial commit)
   version: 4.0.3
   resolution: "eth-rpc-errors@npm:4.0.3"
   dependencies:
@@ -8494,6 +8668,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "ethereum-cryptography@npm:^0.1.3":
   version: 0.1.3
   resolution: "ethereum-cryptography@npm:0.1.3"
@@ -8552,6 +8727,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "event-emitter@npm:^0.3.5":
   version: 0.3.5
   resolution: "event-emitter@npm:0.3.5"
@@ -8774,7 +8951,11 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "fast-json-stable-stringify@npm:^2.0.0, fast-json-stable-stringify@npm:^2.1.0":
+=======
+"fast-json-stable-stringify@npm:^2.0.0":
+>>>>>>> fb57fd1 (Initial commit)
   version: 2.1.0
   resolution: "fast-json-stable-stringify@npm:2.1.0"
   checksum: b191531e36c607977e5b1c47811158733c34ccb3bfde92c44798929e9b4154884378536d26ad90dfecd32e1ffc09c545d23535ad91b3161a27ddbb8ebe0cbecb
@@ -10197,7 +10378,11 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "hash.js@npm:1.1.7, hash.js@npm:^1.0.0, hash.js@npm:^1.0.3, hash.js@npm:^1.1.7":
+=======
+"hash.js@npm:^1.0.0, hash.js@npm:^1.0.3":
+>>>>>>> fb57fd1 (Initial commit)
   version: 1.1.7
   resolution: "hash.js@npm:1.1.7"
   dependencies:
@@ -10416,6 +10601,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "idna-uts46-hx@npm:^2.3.1":
   version: 2.3.1
   resolution: "idna-uts46-hx@npm:2.3.1"
@@ -10425,6 +10611,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "ieee754@npm:^1.1.13, ieee754@npm:^1.1.4, ieee754@npm:^1.2.1":
   version: 1.2.1
   resolution: "ieee754@npm:1.2.1"
@@ -10446,6 +10634,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "immer@npm:^9.0.6":
   version: 9.0.21
   resolution: "immer@npm:9.0.21"
@@ -10453,6 +10642,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "immer@npm:^9.0.7":
   version: 9.0.15
   resolution: "immer@npm:9.0.15"
@@ -10812,6 +11003,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "is-hex-prefixed@npm:1.0.0":
   version: 1.0.0
   resolution: "is-hex-prefixed@npm:1.0.0"
@@ -10819,6 +11011,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "is-installed-globally@npm:^0.4.0":
   version: 0.4.0
   resolution: "is-installed-globally@npm:0.4.0"
@@ -11233,6 +11427,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "js-sha3@npm:0.8.0":
   version: 0.8.0
   resolution: "js-sha3@npm:0.8.0"
@@ -11247,6 +11442,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "js-tokens@npm:^3.0.0 || ^4.0.0, js-tokens@npm:^4.0.0":
   version: 4.0.0
   resolution: "js-tokens@npm:4.0.0"
@@ -11464,6 +11661,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "keccak@npm:^3.0.0":
   version: 3.0.3
   resolution: "keccak@npm:3.0.3"
@@ -11476,6 +11674,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "keyv@npm:^3.0.0":
   version: 3.1.0
   resolution: "keyv@npm:3.1.0"
@@ -12484,6 +12684,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "nanoid@npm:^3.1.31":
   version: 3.3.6
   resolution: "nanoid@npm:3.3.6"
@@ -12493,6 +12694,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "nanoid@npm:^3.3.4":
   version: 3.3.4
   resolution: "nanoid@npm:3.3.4"
@@ -12563,6 +12766,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "node-addon-api@npm:^2.0.0":
   version: 2.0.2
   resolution: "node-addon-api@npm:2.0.2"
@@ -12572,6 +12776,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "node-addon-api@npm:^3.2.1":
   version: 3.2.1
   resolution: "node-addon-api@npm:3.2.1"
@@ -12624,6 +12830,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "node-gyp-build@npm:^4.2.0":
   version: 4.6.0
   resolution: "node-gyp-build@npm:4.6.0"
@@ -12635,6 +12842,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "node-gyp-build@npm:^4.3.0":
   version: 4.5.0
   resolution: "node-gyp-build@npm:4.5.0"
@@ -12849,6 +13058,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "number-to-bn@npm:1.7.0":
   version: 1.7.0
   resolution: "number-to-bn@npm:1.7.0"
@@ -12859,6 +13069,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "oauth-sign@npm:~0.9.0":
   version: 0.9.0
   resolution: "oauth-sign@npm:0.9.0"
@@ -13412,7 +13624,11 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "pbkdf2@npm:^3.0.17, pbkdf2@npm:^3.0.3":
+=======
+"pbkdf2@npm:^3.0.3":
+>>>>>>> fb57fd1 (Initial commit)
   version: 3.1.2
   resolution: "pbkdf2@npm:3.1.2"
   dependencies:
@@ -14124,6 +14340,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "punycode@npm:2.1.0":
   version: 2.1.0
   resolution: "punycode@npm:2.1.0"
@@ -14131,6 +14348,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "punycode@npm:^1.3.2":
   version: 1.4.1
   resolution: "punycode@npm:1.4.1"
@@ -14418,6 +14637,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "readable-stream@npm:3":
   version: 3.6.2
   resolution: "readable-stream@npm:3.6.2"
@@ -14429,6 +14649,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "readable-stream@npm:^2.0.2, readable-stream@npm:^2.0.6, readable-stream@npm:^2.2.2, readable-stream@npm:^2.3.3, readable-stream@npm:~2.3.6":
   version: 2.3.7
   resolution: "readable-stream@npm:2.3.7"
@@ -14860,6 +15082,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "rlp@npm:^2.2.4":
   version: 2.2.7
   resolution: "rlp@npm:2.2.7"
@@ -14871,6 +15094,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "run-async@npm:^2.4.0":
   version: 2.4.1
   resolution: "run-async@npm:2.4.1"
@@ -14970,6 +15195,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "scrypt-js@npm:^3.0.0":
   version: 3.0.1
   resolution: "scrypt-js@npm:3.0.1"
@@ -14989,6 +15215,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "semver-diff@npm:^3.1.1":
   version: 3.1.1
   resolution: "semver-diff@npm:3.1.1"
@@ -15036,6 +15264,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "semver@npm:^7.3.8":
   version: 7.4.0
   resolution: "semver@npm:7.4.0"
@@ -15047,6 +15276,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "send@npm:0.18.0":
   version: 0.18.0
   resolution: "send@npm:0.18.0"
@@ -15125,10 +15356,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "ses@npm:^0.18.1":
   version: 0.18.2
   resolution: "ses@npm:0.18.2"
   checksum: e85c41952dd62bf973c4003dfd9d071f6fb5b432d969eb0ded7baf7467982852241aa5b2adadecd802be8b0747f45bc9d0b92944fb588e062e03e4fe97277ee0
+=======
+"ses@npm:^0.17.0":
+  version: 0.17.0
+  resolution: "ses@npm:0.17.0"
+  checksum: c4c668de819b5366da7a9797d4ab0ec9c3efe4904ea64453cad5a48b659c77b817d589584019f5f7ca42802f640dcc706241543c1df00282473320a77397b641
+>>>>>>> fb57fd1 (Initial commit)
   languageName: node
   linkType: hard
 
@@ -15407,12 +15645,20 @@ __metadata:
     "@metamask/eslint-config-jest": ^10.0.0
     "@metamask/eslint-config-nodejs": ^10.0.0
     "@metamask/eslint-config-typescript": ^10.0.0
+<<<<<<< HEAD
     "@metamask/snaps-cli": ^0.32.2
     "@metamask/snaps-types": ^0.32.2
     "@metamask/snaps-ui": ^0.32.2
     "@typescript-eslint/eslint-plugin": ^5.33.0
     "@typescript-eslint/parser": ^5.33.0
     buffer: ^6.0.3
+=======
+    "@metamask/snaps-cli": ^0.27.1
+    "@metamask/snaps-types": ^0.27.1
+    "@metamask/snaps-ui": ^0.27.1
+    "@typescript-eslint/eslint-plugin": ^5.33.0
+    "@typescript-eslint/parser": ^5.33.0
+>>>>>>> fb57fd1 (Initial commit)
     eslint: ^8.21.0
     eslint-config-prettier: ^8.1.0
     eslint-plugin-import: ^2.26.0
@@ -15423,7 +15669,10 @@ __metadata:
     prettier: ^2.2.1
     prettier-plugin-packagejson: ^2.2.11
     rimraf: ^3.0.2
+<<<<<<< HEAD
     through2: ^4.0.2
+=======
+>>>>>>> fb57fd1 (Initial commit)
     typescript: ^4.7.4
   languageName: unknown
   linkType: soft
@@ -15910,6 +16159,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "strip-hex-prefix@npm:1.0.0":
   version: 1.0.0
   resolution: "strip-hex-prefix@npm:1.0.0"
@@ -15919,6 +16169,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "strip-indent@npm:^3.0.0":
   version: 3.0.0
   resolution: "strip-indent@npm:3.0.0"
@@ -16021,6 +16273,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "superstruct@npm:^1.0.3":
   version: 1.0.3
   resolution: "superstruct@npm:1.0.3"
@@ -16028,6 +16281,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "supports-color@npm:^5.3.0, supports-color@npm:^5.5.0":
   version: 5.5.0
   resolution: "supports-color@npm:5.5.0"
@@ -16230,6 +16485,7 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "through2@npm:^4.0.2":
   version: 4.0.2
   resolution: "through2@npm:4.0.2"
@@ -16239,6 +16495,8 @@ __metadata:
   languageName: node
   linkType: hard
 
+=======
+>>>>>>> fb57fd1 (Initial commit)
 "through@npm:>=2.2.7 <3, through@npm:^2.3.6":
   version: 2.3.8
   resolution: "through@npm:2.3.8"
@@ -17151,7 +17409,11 @@ __metadata:
   languageName: node
   linkType: hard
 
+<<<<<<< HEAD
 "ws@npm:7.4.6, ws@npm:~7.4.2":
+=======
+"ws@npm:~7.4.2":
+>>>>>>> fb57fd1 (Initial commit)
   version: 7.4.6
   resolution: "ws@npm:7.4.6"
   peerDependencies:
