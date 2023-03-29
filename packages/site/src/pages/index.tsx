@@ -4,6 +4,7 @@ import { MetamaskActions, MetaMaskContext } from '../hooks';
 import {
   connectSnap,
   getSnap,
+  sendContractTransaction,
   sendHello,
   shouldDisplayReconnectButton,
 } from '../utils';
@@ -13,6 +14,7 @@ import {
   ReconnectButton,
   SendHelloButton,
   Card,
+  SendTransactionButton,
 } from '../components';
 
 const Container = styled.div`
@@ -125,6 +127,14 @@ const Index = () => {
       dispatch({ type: MetamaskActions.SetError, payload: e });
     }
   };
+  const handleSendTransactionClick = async () => {
+    try {
+      await sendContractTransaction();
+    } catch (e) {
+      console.error(e);
+      dispatch({ type: MetamaskActions.SetError, payload: e });
+    }
+  };
 
   return (
     <Container>
@@ -202,6 +212,25 @@ const Index = () => {
             !shouldDisplayReconnectButton(state.installedSnap)
           }
         />
+                <Card
+          content={{
+            title: 'Send contract transaction',
+            description: 'Insights',
+            button: (
+              <SendTransactionButton
+                onClick={handleSendTransactionClick}
+                disabled={!state.installedSnap}
+              />
+            ),
+          }}
+          disabled={!state.installedSnap}
+          fullWidth={
+            state.isFlask &&
+            Boolean(state.installedSnap) &&
+            !shouldDisplayReconnectButton(state.installedSnap)
+          }
+        />
+
         <Notice>
           <p>
             Please note that the <b>snap.manifest.json</b> and{' '}
