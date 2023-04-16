@@ -75,7 +75,7 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
 
       panel([
         text(`**Risk Score**: ${riskScoreDesc}`),
-        text(`**Social Media Reports**: No risk`),
+        text(`**Social Media Reports**: Low risk`),
         text(`**Illicit Funds**: ${highRisk}%`),
         divider(),
         text(`**Category**: ${categoryAnyIntel.category}`),

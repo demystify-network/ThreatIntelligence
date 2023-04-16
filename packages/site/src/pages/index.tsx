@@ -214,8 +214,8 @@ const Index = () => {
         />
                 <Card
           content={{
-            title: 'Send contract transaction',
-            description: 'Insights',
+            title: 'Threat Intelligence Demo',
+            description: 'Transact with OFAC Blocked Address',
             button: (
               <SendTransactionButton
                 onClick={handleSendTransactionClick}
