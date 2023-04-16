@@ -66,7 +66,7 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
 
   const debitTransactionTraces = insights.transactionTraces?.topDebitsByRisk;
   if (debitTransactionTraces != undefined) {
-    highRiskTransactions.concat(getHighRiskTransfers(debitTransactionTraces, "Expense"));
+    highRiskTransactions = highRiskTransactions.concat(getHighRiskTransfers(debitTransactionTraces, "Expense"));
   }
 
   return {

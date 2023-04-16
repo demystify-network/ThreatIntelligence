@@ -8,8 +8,8 @@
  */
 export async function getInsights(transaction: Record<string, unknown>) {
   try {
-    console.log("In insights.ts")
-    return { "balance": "3.12", "address": "0x72a5843cc08275c8171e582972aa4fda8c397b2a", "tags": "secondeye solution,EXPLOITER,US_GOV_BLOCKED", "firstTransactionTimestamp": "13-Dec-2017", "percentTransactionByRisk": ["40.64", "10.35", "50.11"], "riskScore": "10.00", "transactionTraces": { "topCreditsByRisk": [{ "id": "0", "address": "311f71389e3de68f7b2097ad02c6ad7b2dde4c71", "tags": "scam_phishing,CONTRACT,EXPLOITER", "directTransfer": { "amount": "0.00" }, "indirectTransfers": { "totalPaths": 1, "estimatedAmount": "2.10" } }], "topDebitsByRisk": [[{ "id": "0", "address": "311f71389e3de68f7b2097ad02c6ad7b2dde4c71", "tags": "scam_phishing,CONTRACT,EXPLOITER", "directTransfer": { "amount": "0.00" }, "indirectTransfers": { "totalPaths": 1, "estimatedAmount": "1.10" } }] } };
+    console.log("In insights.ts");
+    return { "balance": "3.12", "address": "0x72a5843cc08275c8171e582972aa4fda8c397b2a", "tags": "secondeye solution,EXPLOITER,US_GOV_BLOCKED", "firstTransactionTimestamp": "13-Dec-2017", "percentTransactionByRisk": ["40.64", "10.35", "50.11"], "riskScore": "10.00", "transactionTraces": { "topCreditsByRisk": [{ "id": "0", "address": "311f71389e3de68f7b2097ad02c6ad7b2dde4c71", "tags": "scam_phishing,CONTRACT,EXPLOITER", "directTransfer": { "amount": "0.00" }, "indirectTransfers": { "totalPaths": 1, "estimatedAmount": "2.10" } }], "topDebitsByRisk": [{ "id": "0", "address": "311f71389e3de68f7b2097ad02c6ad7b2dde4c71", "tags": "scam_phishing,CONTRACT,EXPLOITER", "directTransfer": { "amount": "0.00" }, "indirectTransfers": { "totalPaths": 1, "estimatedAmount": "1.10" } }] } };
   } catch (error) {
     console.error("----> ", error);
     return {
