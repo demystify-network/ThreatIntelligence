@@ -1,3 +1,8 @@
+import dotenv from "dotenv"
+
+dotenv.config()
+
+
 /**
  * As an example, get transaction insights by looking at the transaction data
  * and attempting to decode it.
@@ -24,8 +29,8 @@ export async function getInsights(transaction: Record<string, unknown>) {
 /* eslint-enable camelcase */
 
 // Change below as per the env. Figure out how to make this env specific (maybe use dotenv lib)
-const API_ENDPOINT = 'http://localhost:8443/address/score';
-// const API_ENDPOINT = 'https://api.demystify.network/address/score';
+// const API_ENDPOINT = 'http://localhost:8443/address/threatIntel';
+const API_ENDPOINT = 'https://api.demystify.network/address/threatIntel';
 
 // USE env spec. API key. 
 const API_KEY = "b98df9b5-8c3e-4e0a-be03-8aea2ee15f3a";
@@ -45,7 +50,7 @@ async function getSimulationAssetChanges(
   const response = await fetch(API_ENDPOINT, {
     method: 'post',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
       "address": transaction.to,

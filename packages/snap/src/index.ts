@@ -1,6 +1,9 @@
 import { OnRpcRequestHandler, OnTransactionHandler } from '@metamask/snaps-types';
 import { Text, divider, panel, text } from '@metamask/snaps-ui';
 import { getInsights } from './insights';
+import dotenv from "dotenv"
+
+dotenv.config()
 /**
  * Handle incoming JSON-RPC requests, sent through `wallet_invokeSnap`.
  *
