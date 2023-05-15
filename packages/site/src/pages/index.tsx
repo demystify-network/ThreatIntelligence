@@ -133,9 +133,10 @@ const Index = () => {
 
   const [selectedValue, setSelectedValue] = useState('0xa9b10d7c4548F4EDc24834e0A4F75Cb7b54D56A4');
   const options = [
-    { value: '0xa9b10d7c4548F4EDc24834e0A4F75Cb7b54D56A4', label: 'Bad Actor 1' },
-    { value: '0x7ed1e469fcb3ee19c0366d829e291451be638e59', label: 'Bad Actor 2' },
-    { value: '0x08A8fDBddc160A7d5b957256b903dCAb1aE512C5', label: 'Bad Actor 3' },
+    { value: '0xD4B88Df4D29F5CedD6857912842cff3b20C8Cfa3', label: 'Bad Actor 1' },
+    { value: '0x0297772598B604CcE74BAfEA2B863205541934Aa', label: 'Bad Actor 2' },
+    { value: '0x82242f63946c6198ec5bdf765bb013995195a586', label: 'Bad Actor 3' },
+    { value: '0x5ffc871c9c7a564E5863A26ca0b6D04f51E1FD6B', label: 'Not so Bad Actor' },
   ];
 
   const handleDropdownChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
