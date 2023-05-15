@@ -58,8 +58,6 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
     highRisk = percentTransactionByRisk[2];
   }
 
-  const categoryAnyIntel = extractCategoryAndIntelAsCSV(insights.tags);
-
 
   const creditTransactionTraces = insights.transactionTraces?.topCreditsByRisk;
   let highRiskTransactions: Text[] = []
@@ -81,8 +79,8 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
         text(`**Social Media Reports**: Low risk`),
         text(`**Illicit Funds**: ${highRisk}%`),
         divider(),
-        text(`**Category**: ${categoryAnyIntel.category}`),
-        text(`**Intel**: ${categoryAnyIntel.intel}`),
+        text(`**Category**: ${insights.category}`),
+        text(`**Intel**: ${insights.tags}`),
         divider(),
         text("**High Risk Transfer (ETH)**"),
       ]),
@@ -100,40 +98,6 @@ function shortenAddress(address: string): string {
   return prefix + "..." + suffix;
 }
 
-function extractCategoryAndIntelAsCSV(input: string): { category: string, intel: string } {
-  const words = input.split(",");
-  const { category: upper, intel: lower } = words.filter(token => token.trim() !== "")
-    .reduce((result, token) => {
-      if (/^[A-Z_]+$/.test(token)) {
-        result.category.push(toCamelCase(token));
-      } else {
-        result.intel.push(toCamelCase(token));
-      }
-      return result;
-    }, { category: [], intel: [] });
-
-  return {
-    category: upper.join(","),
-    intel: lower.join(",")
-  };
-}
-
-function toCamelCase(input: string): string {
-  let result = "";
-  let nextUpper = true;
-  for (var i = 0; i < input.length; i++) {
-    const c = input.charAt(i);
-    result += nextUpper ? c.toUpperCase() : c.toLowerCase();
-    if (c === ' ' || c === '_' || c === '-') {
-      nextUpper = true;
-    } else {
-      nextUpper = false;
-    }
-  }
-
-  return result;
-}
-
 
 function getHighRiskTransfers(transactionTraces: {}[], incomeExp: string): Text[] {
   let result: Text[] = []
@@ -141,9 +105,8 @@ function getHighRiskTransfers(transactionTraces: {}[], incomeExp: string): Text[
     result.push(text(`**${incomeExp}**: ${shortenAddress(trace.address)}`));
     result.push(text(`&nbsp;&nbsp;&nbsp;&nbsp;**Direct / Indirect**: ${trace.directTransfer.amount} / ${trace.indirectTransfers.estimatedAmount} (${trace.indirectTransfers.totalPaths} paths)`));
 
-    const catIntel = extractCategoryAndIntelAsCSV(trace.tags);
-    result.push(text(`&nbsp;&nbsp;&nbsp;&nbsp;**Category**: ${catIntel.category}`));
-    result.push(text(`&nbsp;&nbsp;&nbsp;&nbsp;**Intel**: ${catIntel.intel}`));
+    result.push(text(`&nbsp;&nbsp;&nbsp;&nbsp;**Category**: ${trace.category}`));
+    result.push(text(`&nbsp;&nbsp;&nbsp;&nbsp;**Intel**: ${trace.tags}`));
 
   });
 
