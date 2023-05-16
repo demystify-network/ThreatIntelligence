@@ -1,9 +1,7 @@
 import { OnRpcRequestHandler, OnTransactionHandler } from '@metamask/snaps-types';
 import { Text, divider, panel, text } from '@metamask/snaps-ui';
 import { getInsights } from './insights';
-import dotenv from "dotenv"
 
-dotenv.config()
 /**
  * Handle incoming JSON-RPC requests, sent through `wallet_invokeSnap`.
  *
@@ -70,13 +68,18 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
     highRiskTransactions = highRiskTransactions.concat(getHighRiskTransfers(debitTransactionTraces, "Expense"));
   }
 
+  let socialMediaRep = "No Risk";
+  if(insights.socialMediaReports != undefined && insights.socialMediaReports !== "") {
+    socialMediaRep = insights.socialMediaReports;
+  }
+
   return {
     content: panel([
       text(`**Account**: ${shortenAddress(transaction.to)}`),
 
       panel([
         text(`**Risk Score**: ${riskScoreDesc}`),
-        text(`**Social Media Reports**: Low risk`),
+        text(`**Social Media Reports**: ${socialMediaRep}`),
         text(`**Illicit Funds**: ${highRisk}%`),
         divider(),
         text(`**Category**: ${insights.category}`),

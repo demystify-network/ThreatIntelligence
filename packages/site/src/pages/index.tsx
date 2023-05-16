@@ -131,7 +131,7 @@ const Index = () => {
     }
   }
 
-  const [selectedValue, setSelectedValue] = useState('0xa9b10d7c4548F4EDc24834e0A4F75Cb7b54D56A4');
+  const [selectedValue, setSelectedValue] = useState('0xD4B88Df4D29F5CedD6857912842cff3b20C8Cfa3');
   const options = [
     { value: '0xD4B88Df4D29F5CedD6857912842cff3b20C8Cfa3', label: 'Bad Actor 1' },
     { value: '0x0297772598B604CcE74BAfEA2B863205541934Aa', label: 'Bad Actor 2' },
