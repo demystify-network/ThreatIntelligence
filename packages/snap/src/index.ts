@@ -108,7 +108,6 @@ function getHighRiskTransfers(transactionTraces: {}[], incomeExp: string): Text[
     result.push(text(`**${incomeExp}**: ${shortenAddress(trace.address)}`));
     result.push(text(`&nbsp;&nbsp;&nbsp;&nbsp;**Direct / Indirect**: ${trace.directTransfer.amount} / ${trace.indirectTransfers.estimatedAmount} (${trace.indirectTransfers.totalPaths} paths)`));
 
-    result.push(text(`&nbsp;&nbsp;&nbsp;&nbsp;**Category**: ${trace.category}`));
     result.push(text(`&nbsp;&nbsp;&nbsp;&nbsp;**Intel**: ${trace.tags}`));
 
   });
