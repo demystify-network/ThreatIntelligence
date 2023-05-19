@@ -39,7 +39,14 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
   };
 
   const insights = blah.insights;
+
+  let socialMediaRep = "No Risk";
+  if (insights.socialMediaReports != undefined && insights.socialMediaReports !== "") {
+    socialMediaRep = insights.socialMediaReports;
+  }
+
   let riskScoreDesc = "Low";
+
   const riskScore = parseFloat(insights.riskScore)
   if (!isNaN(riskScore)) {
     if (riskScore > 5 && riskScore <= 7) {
@@ -47,6 +54,14 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
     } else if (riskScore > 7) {
       riskScoreDesc = "High";
     }
+  }
+
+  if(socialMediaRep == "High Risk" || riskScoreDesc === "High") {
+    riskScoreDesc = "High";
+  } else if(socialMediaRep == "Medium Risk" || riskScoreDesc === "Medium") {
+    riskScoreDesc = "Medium";
+  } else {
+    riskScoreDesc = "Low Risk";
   }
 
   const percentTransactionByRisk = insights.percentTransactionByRisk;
@@ -68,24 +83,19 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
     highRiskTransactions = highRiskTransactions.concat(getHighRiskTransfers(debitTransactionTraces, "Expense"));
   }
 
-  let socialMediaRep = "No Risk";
-  if(insights.socialMediaReports != undefined && insights.socialMediaReports !== "") {
-    socialMediaRep = insights.socialMediaReports;
-  }
-
   return {
     content: panel([
       text(`**Account**: ${shortenAddress(transaction.to)}`),
 
       panel([
         text(`**Risk Score**: ${riskScoreDesc}`),
-        text(`**Social Media Reports**: ${socialMediaRep}`),
-        text(`**Illicit Funds**: ${highRisk}%`),
         divider(),
         text(`**Category**: ${insights.category}`),
         text(`**Intel**: ${insights.tags}`),
+        text(`**Social Media Reports**: ${socialMediaRep}`),
+        text(`**Illicit Funds**: ${highRisk}%`),
         divider(),
-        text("**High Risk Transfer (ETH)**"),
+        text("**Potentially Risky Transfers (ETH)**"),
       ]),
 
       panel(highRiskTransactions)
@@ -108,7 +118,8 @@ function getHighRiskTransfers(transactionTraces: {}[], incomeExp: string): Text[
     result.push(text(`**${incomeExp}**: ${shortenAddress(trace.address)}`));
     result.push(text(`&nbsp;&nbsp;&nbsp;&nbsp;**Direct / Indirect**: ${trace.directTransfer.amount} / ${trace.indirectTransfers.estimatedAmount} (${trace.indirectTransfers.totalPaths} paths)`));
 
-    result.push(text(`&nbsp;&nbsp;&nbsp;&nbsp;**Intel**: ${trace.tags}`));
+    result.push(text(`&nbsp;&nbsp;&nbsp;&nbsp;**Category/Intel**: ${trace.category} / ${trace.tags}`));
+    // result.push(text(`&nbsp;&nbsp;&nbsp;&nbsp;**Intel**: ${trace.tags}`));
 
   });
 

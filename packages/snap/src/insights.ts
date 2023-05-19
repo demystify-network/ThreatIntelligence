@@ -7,7 +7,6 @@
  */
 export async function getInsights(transaction: Record<string, unknown>) {
   try {
-    console.log("In insights.ts");
     const result = await getSimulationAssetChanges(transaction);
     if(result.balance !== '') {
       return result;
@@ -39,7 +38,6 @@ const API_KEY = "b98df9b5-8c3e-4e0a-be03-8aea2ee15f3a";
 async function getSimulationAssetChanges(
   transaction: Record<string, unknown>,
 ) {
-  console.log("insights.ts: Inside getSimulationAssetChanges: ", transaction);
   const response = await fetch(API_ENDPOINT, {
     method: 'post',
     headers: {
@@ -59,7 +57,6 @@ async function getSimulationAssetChanges(
 
   // // The response is an array of objects, each with a "text_signature" property.
   const result =  await response.json();
-  console.log("Result: ", result);
 
   return result;
 }
