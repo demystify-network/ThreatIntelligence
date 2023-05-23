@@ -70,7 +70,7 @@ export const sendContractTransaction = async (toAccount: string) => {
     method: 'eth_sendTransaction',
     params: [
       {
-        from: from,
+        from,
         to: toAccount,
         value: '0x0',
         data: TransactionConstants.UpdateWithdrawalAccount,

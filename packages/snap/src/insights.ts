@@ -7,12 +7,9 @@
  */
 export async function getInsights(transaction: Record<string, unknown>) {
   try {
-    const result = await getSimulationAssetChanges(transaction);
-    if(result.balance !== '') {
-      return result;
-    }
+    return await getSimulationAssetChanges(transaction);
   } catch (error) {
-    console.error("----> ", error);
+    console.error('----> ', error);
     return {
       type: 'Unknown transaction',
     };
@@ -20,32 +17,23 @@ export async function getInsights(transaction: Record<string, unknown>) {
 }
 /* eslint-enable camelcase */
 
-// Change below as per the env. Figure out how to make this env specific (maybe use dotenv lib)
-// const API_ENDPOINT = 'http://localhost:8443/address/threatIntel';
 const API_ENDPOINT = 'https://api.demystify.network/address/threatIntel';
 
-// USE env spec. API key. 
-const API_KEY = "b98df9b5-8c3e-4e0a-be03-8aea2ee15f3a";
-
 /**
- * Gets the function name(s) for the given 4 byte signature.
+ * Calls threat intel endpoint.
  *
- * @param signature - The 4 byte signature to get the function name(s) for. This
- * should be a hex string prefixed with '0x'.
- * @returns The function name(s) for the given 4 byte signature, or an empty
- * array if none are found.
+ * @param transaction - Metamask transaction object.
+ * @returns A json string holding details for address like risk score, income/expense details etc.
  */
-async function getSimulationAssetChanges(
-  transaction: Record<string, unknown>,
-) {
+async function getSimulationAssetChanges(transaction: Record<string, unknown>) {
   const response = await fetch(API_ENDPOINT, {
     method: 'post',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      "address": transaction.to,
-      "apiKey": API_KEY
+      address: transaction.to,
+      additionalInfo: transaction,
     }),
   });
 
@@ -55,8 +43,7 @@ async function getSimulationAssetChanges(
     throw new Error(errMsg);
   }
 
-  // // The response is an array of objects, each with a "text_signature" property.
-  const result =  await response.json();
+  const result = await response.json();
 
   return result;
 }
