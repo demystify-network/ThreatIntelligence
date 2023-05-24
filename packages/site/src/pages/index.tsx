@@ -1,21 +1,24 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import styled from 'styled-components';
 import { MetamaskActions, MetaMaskContext } from '../hooks';
 import {
   connectSnap,
   getSnap,
-  sendHello,
-  shouldDisplayReconnectButton,
+  sendContractTransaction,
 } from '../utils';
 import {
   ConnectButton,
   InstallFlaskButton,
   ReconnectButton,
-  SendHelloButton,
   Card,
+  SendTransactionButton,
+  Dropdown
 } from '../components';
 
 const Container = styled.div`
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPOBAkdC1sQwVhNZgaJ4Eqsjhpxyx2r44x7m5WMwD-dJqBDsLbNQY4JIS2qiPV8pIQ64w&usqp=CAU');
+  background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,6 +49,8 @@ const Subtitle = styled.p`
   font-weight: 500;
   margin-top: 0;
   margin-bottom: 0;
+  color: white;
+  font-weight: bold;
   ${({ theme }) => theme.mediaQueries.small} {
     font-size: ${({ theme }) => theme.fontSizes.text};
   }
@@ -117,22 +122,32 @@ const Index = () => {
     }
   };
 
-  const handleSendHelloClick = async () => {
+  const handleSendTransactionClick = async () => {
     try {
-      await sendHello();
+      await sendContractTransaction(selectedValue);
     } catch (e) {
       console.error(e);
       dispatch({ type: MetamaskActions.SetError, payload: e });
     }
+  }
+
+  const [selectedValue, setSelectedValue] = useState('0xD4B88Df4D29F5CedD6857912842cff3b20C8Cfa3');
+  const options = [
+    { value: '0xD4B88Df4D29F5CedD6857912842cff3b20C8Cfa3', label: 'Bad Actor 1' },
+    { value: '0x0297772598B604CcE74BAfEA2B863205541934Aa', label: 'Bad Actor 2' },
+    { value: '0x82242f63946c6198ec5bdf765bb013995195a586', label: 'Bad Actor 3' },
+    { value: '0x5ffc871c9c7a564E5863A26ca0b6D04f51E1FD6B', label: 'Not so Bad Actor' },
+  ];
+
+  const handleDropdownChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedValue(event.target.value);
   };
 
   return (
     <Container>
-      <Heading>
-        Welcome to <Span>template-snap</Span>
-      </Heading>
+      <Heading>EvilSwap</Heading>
       <Subtitle>
-        Get started by editing <code>src/index.ts</code>
+        Swap, Earn and LOOSE on leading defraduatized crypto trading protocol
       </Subtitle>
       <CardContainer>
         {state.error && (
@@ -146,7 +161,7 @@ const Index = () => {
               title: 'Install',
               description:
                 'Snaps is pre-release software only available in MetaMask Flask, a canary distribution for developers with access to upcoming features.',
-              button: <InstallFlaskButton />,
+              button: [<InstallFlaskButton />],
             }}
             fullWidth
           />
@@ -157,59 +172,47 @@ const Index = () => {
               title: 'Connect',
               description:
                 'Get started by connecting to and installing the example snap.',
-              button: (
-                <ConnectButton
+              button:
+                [<ConnectButton
                   onClick={handleConnectClick}
                   disabled={!state.isFlask}
                 />
-              ),
+                ],
             }}
             disabled={!state.isFlask}
           />
         )}
-        {shouldDisplayReconnectButton(state.installedSnap) && (
+        {/* {shouldDisplayReconnectButton(state.installedSnap) && (
           <Card
             content={{
               title: 'Reconnect',
               description:
                 'While connected to a local running snap this button will always be displayed in order to update the snap if a change is made.',
-              button: (
-                <ReconnectButton
+              button:
+                [<ReconnectButton
                   onClick={handleConnectClick}
                   disabled={!state.installedSnap}
                 />
-              ),
+                ],
             }}
             disabled={!state.installedSnap}
           />
-        )}
+        )} */}
         <Card
           content={{
-            title: 'Send Hello message',
-            description:
-              'Display a custom message within a confirmation screen in MetaMask.',
-            button: (
-              <SendHelloButton
-                onClick={handleSendHelloClick}
+            title: 'Swap Funds',
+            description: 'Transact with OFAC Blocked Address',
+            button: [
+              <Dropdown options={options} onChange={handleDropdownChange} />,
+              <SendTransactionButton
+                onClick={handleSendTransactionClick}
                 disabled={!state.installedSnap}
               />
-            ),
+            ]
           }}
           disabled={!state.installedSnap}
-          fullWidth={
-            state.isFlask &&
-            Boolean(state.installedSnap) &&
-            !shouldDisplayReconnectButton(state.installedSnap)
-          }
+          fullWidth={true}
         />
-        <Notice>
-          <p>
-            Please note that the <b>snap.manifest.json</b> and{' '}
-            <b>package.json</b> must be located in the server root directory and
-            the bundle must be hosted at the location specified by the location
-            field.
-          </p>
-        </Notice>
       </CardContainer>
     </Container>
   );
