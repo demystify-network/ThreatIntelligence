@@ -5,7 +5,7 @@ type CardProps = {
   content: {
     title?: string;
     description: ReactNode;
-    button?: ReactNode;
+    button?: ReactNode[];
   };
   disabled?: boolean;
   fullWidth?: boolean;
