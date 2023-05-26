@@ -1,13 +1,13 @@
 {
   "version": "0.1.0",
-  "description": "An example Snap written in TypeScript.",
-  "proposedName": "TypeScript Example Snap",
+  "description": "Threat Intel - Protect yourself from hacking, spamming & phishing - By https://demystify.network/",
+  "proposedName": "Threat Intel",
   "repository": {
     "type": "git",
     "url": "https://github.com/MetaMask/template-snap-monorepo.git"
   },
   "source": {
-    "shasum": "usoZPr0F4J12BaVbuDQRCCIW2cj/N5gZD7ccOJfDZV8=",
+    "shasum": "9JVbhjVLD/1coFT5rXKodU9/oE7GxATVH2A7XHHnpQ4=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
@@ -22,7 +22,9 @@
     "endowment:rpc": {
       "dapps": true,
       "snaps": false
-    }
+    },
+    "endowment:transaction-insight": {},
+    "endowment:network-access": {}
   },
   "manifestVersion": "0.1"
 }
