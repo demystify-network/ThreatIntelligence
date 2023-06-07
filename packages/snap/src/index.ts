@@ -61,7 +61,7 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
 
   return {
     content: panel([
-      text(`**Account**: ${shortenAddress(transaction.to)}`),
+      text(`**Account**: ${shortenAddress(transaction.to as string)}`),
 
       panel([
         text(`**Risk Score**: ${riskScoreDesc}`),
@@ -98,7 +98,7 @@ function shortenAddress(address: string): string {
  * @returns Returns an array of Text with the right format as we want to render in snap.
  */
 function getHighRiskTransfers(
-  transactionTraces: [],
+  transactionTraces: any[],
   incomeExp: string,
 ): Text[] {
   const result: Text[] = [];
