@@ -11,7 +11,8 @@ import {
   InstallFlaskButton,
   Card,
   SendTransactionButton,
-  Dropdown
+  Dropdown,
+  TextField
 } from '../components';
 
 const Container = styled.div`
@@ -65,6 +66,10 @@ const CardContainer = styled.div`
   height: 100%;
   margin-top: 1.5rem;
 `;
+
+const searchParams = new URLSearchParams(window.location.search);
+const mode = searchParams.get("mode");
+const showElement = mode === "1";
 
 const Notice = styled.div`
   background-color: ${({ theme }) => theme.colors.background.alternative};
@@ -123,23 +128,32 @@ const Index = () => {
 
   const handleSendTransactionClick = async () => {
     try {
-      await sendContractTransaction(selectedValue);
+      let address = dropDownSelectedValue;
+      if(textFieldSelectedValue.trim() !== '') {
+        address = textFieldSelectedValue;
+      }
+      await sendContractTransaction(address);
     } catch (e) {
       console.error(e);
       dispatch({ type: MetamaskActions.SetError, payload: e });
     }
   }
 
-  const [selectedValue, setSelectedValue] = useState('0xD4B88Df4D29F5CedD6857912842cff3b20C8Cfa3');
+  const [textFieldSelectedValue, setTextFieldSelectedValue] = useState('');
+  const [dropDownSelectedValue, setDropDownSelectedValue] = useState('0xD4B88Df4D29F5CedD6857912842cff3b20C8Cfa3');
   const options = [
     { value: '0xD4B88Df4D29F5CedD6857912842cff3b20C8Cfa3', label: 'Bad Actor 1' },
     { value: '0x0297772598B604CcE74BAfEA2B863205541934Aa', label: 'Bad Actor 2' },
     { value: '0x82242f63946c6198ec5bdf765bb013995195a586', label: 'Bad Actor 3' },
-    { value: '0x5ffc871c9c7a564E5863A26ca0b6D04f51E1FD6B', label: 'Not so Bad Actor' },
+    { value: '0x5ffc871c9c7a564E5863A26ca0b6D04f51E1FD6B', label: 'Not so Bad Actor' }
   ];
 
   const handleDropdownChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedValue(event.target.value);
+    setDropDownSelectedValue(event.target.value);
+  };
+
+  const handleTextFieldChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTextFieldSelectedValue(event.target.value);
   };
 
   return (
@@ -171,6 +185,11 @@ const Index = () => {
             description: 'Transact with OFAC Blocked Address',
             button: [
               <Dropdown options={options} onChange={handleDropdownChange} />,
+              <div style={{ display: showElement ? "block" : "none"}}>
+                <div>Or try one of your choice</div>
+                <br/>
+                <TextField type='text' placeholder='ETH address...' onChange={handleTextFieldChange}/>
+              </div>,
               <SendTransactionButton
                 onClick={handleSendTransactionClick}
                 disabled={!state.installedSnap}
