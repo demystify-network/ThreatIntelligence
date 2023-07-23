@@ -124,6 +124,13 @@ export const Dropdown = ({ options, ...props }: DropdownProps) => {
   );
 };
 
+export const TextField = styled.input`
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+`;
+
 export const InstallFlaskButton = () => (
   <Link href="https://metamask.io/flask/" target="_blank">
     <FlaskFox />
