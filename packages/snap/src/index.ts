@@ -29,11 +29,11 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
   }
 
   if (socialMediaRep === 'High Risk' || riskScoreDesc === 'High') {
-    riskScoreDesc = 'High';
+    riskScoreDesc = 'High &#10071;';
   } else if (socialMediaRep === 'Medium Risk' || riskScoreDesc === 'Medium') {
-    riskScoreDesc = 'Medium';
+    riskScoreDesc = 'Medium &#x270B;';
   } else {
-    riskScoreDesc = 'Low';
+    riskScoreDesc = 'Low &#x2705;';
   }
 
   const { percentTransactionByRisk } = insights;
