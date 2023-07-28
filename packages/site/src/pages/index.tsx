@@ -67,9 +67,12 @@ const CardContainer = styled.div`
   margin-top: 1.5rem;
 `;
 
-const searchParams = new URLSearchParams(window.location.search);
-const mode = searchParams.get("mode");
-const showElement = mode === "1";
+let showElement = false;
+if (typeof window !== 'undefined') {
+  const searchParams = new URLSearchParams(window.location.search);
+  const mode = searchParams.get("mode");
+  showElement = mode === "1";  
+}
 
 const Notice = styled.div`
   background-color: ${({ theme }) => theme.colors.background.alternative};
