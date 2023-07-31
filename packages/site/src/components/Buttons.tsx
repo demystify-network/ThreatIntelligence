@@ -69,6 +69,68 @@ const ConnectedIndicator = styled.div`
   background-color: green;
 `;
 
+const DropdownContainer = styled.div`
+  position: relative;
+`;
+
+const DropdownSelect = styled.select`
+  appearance: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px 32px 8px 12px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: white;
+  background-image: linear-gradient(to bottom, #f9f9f9, #e8e8e8);
+  background-repeat: repeat-x;
+  background-size: 100% 2px;
+  margin-bottom: 16px;
+`;
+
+const DropdownArrow = styled.span`
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  &::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid #666;
+    border-right: 2px solid #666;
+    transform: rotate(45deg);
+  }
+`;
+
+type DropdownProps = ComponentProps<typeof DropdownSelect> & {
+  options: { value: string; label: string }[];
+};
+
+export const Dropdown = ({ options, ...props }: DropdownProps) => {
+  return (
+    <DropdownContainer>
+      <DropdownSelect {...props}>
+        {options.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
+      </DropdownSelect>
+      <DropdownArrow />
+    </DropdownContainer>
+  );
+};
+
+export const TextField = styled.input`
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+`;
+
 export const InstallFlaskButton = () => (
   <Link href="https://metamask.io/flask/" target="_blank">
     <FlaskFox />
@@ -97,6 +159,11 @@ export const ReconnectButton = (props: ComponentProps<typeof Button>) => {
 export const SendHelloButton = (props: ComponentProps<typeof Button>) => {
   return <Button {...props}>Send message</Button>;
 };
+
+export const SendTransactionButton = (props: ComponentProps<typeof Button>) => {
+  return <Button {...props}>Swap Now</Button>;
+};
+
 
 export const HeaderButtons = ({
   state,
