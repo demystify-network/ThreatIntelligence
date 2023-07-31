@@ -1,8 +1,5 @@
-# TypeScript Example Snap
+# Threat Intel Snap
 
-This Snap demonstrates how to develop a Snap with TypeScript.
-
-## Notes
-
-- Babel is used for transpiling TypeScript to JavaScript, so when building with the CLI,
-  `transpilationMode` must be set to `localOnly` (default) or `localAndDeps`.
+This snap provides threat intel by leveraging the power of Risk Scoring API of
+[Demystify.Network](https://demystify.network/) allowing you to determine the
+trustworthiness of a pseudonymous address on Ethereum blockchain.
