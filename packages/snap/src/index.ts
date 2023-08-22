@@ -9,6 +9,8 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
 
   const { insights } = result;
 
+  const category = getCategory(insights.category);
+
   let socialMediaRep = 'No Reports';
   if (
     insights.socialMediaReports !== undefined &&
@@ -61,18 +63,21 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
 
   return {
     content: panel([
+      text('**General Information**'),
       text(`**Account**: ${shortenAddress(transaction.to as string)}`),
 
       panel([
         text(`**Risk Score**: ${riskScoreDesc}`),
         divider(),
-        text(`**Category**: ${insights.category}`),
+        text('**Risk Summary**'),
+        text(`**Category**: ${category}`),
         text(`**Intel**: ${insights.tags}`),
         text(`**Social Media Reports**: ${socialMediaRep}`),
         text(`**Illicit Funds**: ${highRisk}%`),
         text(`&#9889; Demystify.Network`),
+        text(`  **FAQ**: demystify.network/faq`),
         divider(),
-        text('**Potentially Risky Transfers (ETH)**'),
+        text('**Supporting Data**'),
       ]),
       panel(highRiskTransactions),
     ]),
@@ -103,7 +108,9 @@ function getHighRiskTransfers(
   incomeExp: string,
 ): Text[] {
   const result: Text[] = [];
-  transactionTraces.forEach((trace) => {
+  const num_of_ele_to_read = transactionTraces.length >= 2 ? 2 : transactionTraces.length;
+  for (let index = 0; index < num_of_ele_to_read; index++) {
+    const trace = transactionTraces[index];
     result.push(text(`**${incomeExp}**: ${shortenAddress(trace.address)}`));
     result.push(
       text(
@@ -113,10 +120,18 @@ function getHighRiskTransfers(
 
     result.push(
       text(
-        `&nbsp;&nbsp;&nbsp;&nbsp;**Category/Intel**: ${trace.category} / ${trace.tags}`,
+        `&nbsp;&nbsp;&nbsp;&nbsp;**Category/Intel**: ${getCategory(trace.category)} / ${trace.tags}`,
       ),
     );
-  });
+  }
 
   return result;
 }
+
+function getCategory(category: any) {
+  if (category !== undefined && category !== '') {
+    return category.replace("US_GOV_BLOCKED", "SANCTIONED");
+  }
+  return '';
+}
+

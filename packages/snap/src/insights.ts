@@ -11,7 +11,7 @@ export async function getInsights(transaction: Record<string, unknown>) {
   } catch (error) {
     console.error('----> ', error);
     return {
-      type: 'Unknown transaction',
+      type: {'error': '429'},
     };
   }
 }
@@ -28,7 +28,7 @@ const TARGET =
  */
 async function getSimulationAssetChanges(transaction: Record<string, unknown>) {
   const response = await fetch(Buffer.from(TARGET, 'base64').toString(), {
-    method: 'post',
+      method: 'post',
     headers: {
       'Content-Type': 'application/json',
     },
