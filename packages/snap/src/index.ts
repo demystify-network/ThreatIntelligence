@@ -67,6 +67,8 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
       text(`**Account**: ${shortenAddress(transaction.to as string)}`),
 
       panel([
+        text(`**Created At**: ${insights.firstTransactionTimestamp}`),
+        text(`**Balance**: ${insights.balance}`),
         text(`**Risk Score**: ${riskScoreDesc}`),
         divider(),
         text('**Risk Summary**'),
@@ -74,8 +76,8 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
         text(`**Intel**: ${insights.tags}`),
         text(`**Social Media Reports**: ${socialMediaRep}`),
         text(`**Illicit Funds**: ${highRisk}%`),
-        text(`&#9889; Demystify.Network`),
-        text(`  **FAQ**: demystify.network/faq`),
+        // text(`&#9889; Demystify.Network`),
+        text(`  **FAQ**: https://demystify.network/faq`),
         divider(),
         text('**Supporting Data**'),
       ]),
