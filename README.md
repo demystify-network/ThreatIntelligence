@@ -9,7 +9,7 @@ This repository houses the Threat Intel [Metamask Snap](https://metamask.io/snap
 * Below are few snapshots of the snap.
 
 |                          |                          |
-|--------------------------|--------------------------|
+| ------------------------ | ------------------------ |
 | ![Alt text](image-1.png) | ![Alt text](image-3.png) |
 | ![Alt text](image-2.png) |                          |
 
