@@ -27,7 +27,7 @@ describe('onTransaction', () => {
       tags: 'tornado.cash,exploiter',
       socialMediaReports: '',
       firstTransactionTimestamp: '17-Dec-2019',
-      percentTransactionByRisk: ['71.75', '12.78', '15.46'],
+      percentTransactionByRisk: ['71.75', '12.79', '15.45'],
       riskScore: '10.00',
       transactionTraces: {
         topCreditsByRisk: [
@@ -147,7 +147,7 @@ describe('onTransaction', () => {
       '**Tags**: tornado.cash,exploiter',
     );
 
-    assertTextFiled(genInfoPanelChildren[8], '**Illicit Funds**: 15.46%');
+    assertTextFiled(genInfoPanelChildren[8], '**Illicit Funds**: 15.45%');
 
     assertTextFiled(
       genInfoPanelChildren[9],
