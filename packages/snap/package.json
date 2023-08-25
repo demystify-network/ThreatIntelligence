@@ -1,6 +1,6 @@
 {
   "name": "threat-intel-snap",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "This snap provides threat intel by leveraging the power of Risk Scoring API of Demystify.Network allowing you to determine the trustworthiness of a pseudonymous address on Ethereum blockchain",
   "repository": {
     "type": "git",
