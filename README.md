@@ -10,12 +10,12 @@ This repository houses the Threat Intel [Metamask Snap](https://metamask.io/snap
 - Now you need to install the Threat Intell snap. Once you have installed the Threat Intel Snap, when you try to transact on Ethereum blockchain with some address using Metamask, Threat Intel snap will also appear and get the intel about the address with which you are about to transact.
 - Below are few snapshots of the snap.
 
-|                      |                        |
-| -------------------- | ---------------------- |
-| ![Low Risk](low.png) | ![High Risk](high.png) |
+|                        |                      |
+| ---------------------- | -------------------- |
+| ![High Risk](high.png) | ![Low Risk](low.png) |
 
-- So as you can see in the image on left, the address OFAC blocked, involved in mixing funds etc and has considerbaly high number of illicit funds resulting in High risk score.
-- Where as image on right, you can see address has Low risk score since has no illicit funds, there are no social media reports and few other parameters as applied by the Risk Scoring APIs of Demystify.Network.
+- So as you can see in the image on left, the address Sanctioned (for example OFAC blocked), involved in mixing funds etc and has considerbaly high number of illicit funds resulting in High risk score.
+- Where as image on right, you can see address has Low risk score since has low illicit funds, there are no social media reports and few other parameters as applied by the Risk Scoring APIs of Demystify.Network.
 - You can also get more insights by examining the Income and Expense transactions.
 
 ## Published Package
