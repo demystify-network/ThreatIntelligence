@@ -9,8 +9,6 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
   };
 
   const { insights } = result;
-  // console.log(Web3.utils.fromWei('3933801845683417252847', 'ether'));
-  // const web3 = new Web3(Web3.givenProvider);
 
   const category = getCategory(insights.category);
 
