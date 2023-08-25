@@ -1,5 +1,6 @@
 import { OnTransactionHandler } from '@metamask/snaps-types';
 import { Text, divider, panel, text } from '@metamask/snaps-ui';
+import { utils } from 'web3';
 import { getInsights } from './insights';
 
 export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
@@ -9,6 +10,8 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
 
   const { insights } = result;
 
+  const category = getCategory(insights.category);
+
   let socialMediaRep = 'No Reports';
   if (
     insights.socialMediaReports !== undefined &&
@@ -17,11 +20,13 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
     socialMediaRep = insights.socialMediaReports;
   }
 
-  let riskScoreDesc = 'Low';
+  let riskScoreDesc = 'N/A';
 
   const riskScore = parseFloat(insights.riskScore);
   if (!isNaN(riskScore)) {
-    if (riskScore > 5 && riskScore <= 7) {
+    if (riskScore <= 5) {
+      riskScoreDesc = 'Low';
+    } else if (riskScore > 5 && riskScore <= 7) {
       riskScoreDesc = 'Medium';
     } else if (riskScore > 7) {
       riskScoreDesc = 'High';
@@ -32,15 +37,17 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
     riskScoreDesc = 'High &#10071;';
   } else if (socialMediaRep === 'Medium Risk' || riskScoreDesc === 'Medium') {
     riskScoreDesc = 'Medium &#x270B;';
-  } else {
+  } else if (riskScoreDesc === 'Low') {
     riskScoreDesc = 'Low &#x2705;';
+  } else {
+    riskScoreDesc = 'N/A &#x270B;';
   }
 
   const { percentTransactionByRisk } = insights;
-  let highRisk = 'n/a';
+  let highRisk = 'N/A';
 
   if (percentTransactionByRisk !== undefined) {
-    highRisk = percentTransactionByRisk[2];
+    highRisk = `${percentTransactionByRisk[2]}%`;
   }
 
   const creditTransactionTraces = insights.transactionTraces?.topCreditsByRisk;
@@ -61,22 +68,73 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
 
   return {
     content: panel([
+      text('**General Information**'),
       text(`**Account**: ${shortenAddress(transaction.to as string)}`),
 
       panel([
+        text(
+          `**First Transaction**: ${getFirstTransactionAt(
+            insights.firstTransactionTimestamp,
+          )}`,
+        ),
+        text(`**Balance (ETH)**: ${getBalance(insights.balance)}`),
+        divider(),
+        text('**Risk Summary**'),
         text(`**Risk Score**: ${riskScoreDesc}`),
-        divider(),
-        text(`**Category**: ${insights.category}`),
-        text(`**Intel**: ${insights.tags}`),
+        text(`**Category**: ${category}`),
+        text(`**Tags**: ${naIfUndefined(insights.tags)}`),
         text(`**Social Media Reports**: ${socialMediaRep}`),
-        text(`**Illicit Funds**: ${highRisk}%`),
-        text(`&#9889; Demystify.Network`),
+        text(`**Illicit Funds**: ${highRisk}`),
+        text(`  **FAQ**: https://demystify.network/faq`),
         divider(),
-        text('**Potentially Risky Transfers (ETH)**'),
+        text('**Supporting Data**'),
       ]),
       panel(highRiskTransactions),
     ]),
   };
+
+  /**
+   * For a given balance in wei, returns it in Ether.
+   *
+   * @param bal - Balance in wei format.
+   * @returns Returns the balance in Ehter with 6 decimal precision.
+   */
+  function getBalance(bal: string): string {
+    const balance = naIfUndefined(bal);
+    if (balance === 'N/A') {
+      return balance;
+    }
+
+    return parseFloat(utils.fromWei(balance, 'ether')).toFixed(6);
+  }
+
+  /**
+   * Returns first transaction timestamp if available.
+   *
+   * @param firstTxnTS - First transaction timestamp.
+   * @returns Returns first transaction timestamp if available, else No Data.
+   */
+  function getFirstTransactionAt(firstTxnTS: string): string {
+    if (firstTxnTS === undefined || firstTxnTS === '') {
+      return '&#x270B; No Data';
+    }
+
+    return firstTxnTS;
+  }
+
+  /**
+   * Checks if a provided text is undefined or empty.
+   *
+   * @param someString - Text to check if its undefined or empty.
+   * @returns Returns someString itself if not undefied or empty else 'N/A'.
+   */
+  function naIfUndefined(someString: string): string {
+    if (someString === undefined || someString.trim() === '') {
+      return 'N/A';
+    }
+
+    return someString;
+  }
 };
 
 /**
@@ -103,7 +161,10 @@ function getHighRiskTransfers(
   incomeExp: string,
 ): Text[] {
   const result: Text[] = [];
-  transactionTraces.forEach((trace) => {
+  const numOfEleToRead =
+    transactionTraces.length >= 2 ? 2 : transactionTraces.length;
+  for (let index = 0; index < numOfEleToRead; index++) {
+    const trace = transactionTraces[index];
     result.push(text(`**${incomeExp}**: ${shortenAddress(trace.address)}`));
     result.push(
       text(
@@ -113,10 +174,25 @@ function getHighRiskTransfers(
 
     result.push(
       text(
-        `&nbsp;&nbsp;&nbsp;&nbsp;**Category/Intel**: ${trace.category} / ${trace.tags}`,
+        `&nbsp;&nbsp;&nbsp;&nbsp;**Category/Tags**: ${getCategory(
+          trace.category,
+        )} / ${trace.tags}`,
       ),
     );
-  });
+  }
 
   return result;
+}
+
+/**
+ * Returns category with any replacement which is required for UI.
+ *
+ * @param category - Category as received in response.
+ * @returns Cateogry with any replacement that is needed.
+ */
+function getCategory(category: any) {
+  if (category !== undefined && category !== '') {
+    return category.replace('US_GOV_BLOCKED', 'SANCTIONED');
+  }
+  return 'N/A';
 }

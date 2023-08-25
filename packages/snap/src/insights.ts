@@ -11,7 +11,7 @@ export async function getInsights(transaction: Record<string, unknown>) {
   } catch (error) {
     console.error('----> ', error);
     return {
-      type: 'Unknown transaction',
+      type: { error: '429' },
     };
   }
 }

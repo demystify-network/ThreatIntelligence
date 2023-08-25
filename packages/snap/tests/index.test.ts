@@ -21,13 +21,13 @@ describe('onTransaction', () => {
     };
 
     mockedGetInsights.mockResolvedValue({
-      balance: '100',
+      balance: '3933801795183417252847 ',
       address: '0xd4b88df4d29f5cedd6857912842cff3b20c8cfa3',
       category: 'MIXER,US_GOV_BLOCKED',
       tags: 'tornado.cash,exploiter',
       socialMediaReports: '',
       firstTransactionTimestamp: '17-Dec-2019',
-      percentTransactionByRisk: ['71.75', '12.78', '15.46'],
+      percentTransactionByRisk: ['71.75', '12.79', '15.45'],
       riskScore: '10.00',
       transactionTraces: {
         topCreditsByRisk: [
@@ -113,67 +113,72 @@ describe('onTransaction', () => {
 
     const { children } = content;
     expect(children).not.toBeNull();
-    expect(children).toHaveLength(3);
+    expect(children).toHaveLength(4);
 
-    const accountText: any = children[0];
-    expect(accountText).not.toBeNull();
+    const generalInfo: any = children[0];
+    expect(generalInfo).not.toBeNull();
+    expect(generalInfo.value).toBe('**General Information**');
+
+    const accountText: any = children[1];
     expect(accountText.value).toBe('**Account**: 0xd4b...cfa3');
 
-    const riskScorePanel = children[1];
-    expect(riskScorePanel).not.toBeNull();
+    const genInfoPanel = children[2];
+    expect(genInfoPanel).not.toBeNull();
 
-    const riskScorePanelChildren = riskScorePanel.children;
-    expect(riskScorePanelChildren).not.toBeNull();
-    expect(riskScorePanelChildren).toHaveLength(9);
-
-    assertTextFiled(riskScorePanelChildren[0], '**Risk Score**: High &#10071;');
+    const genInfoPanelChildren = genInfoPanel.children;
+    expect(genInfoPanelChildren).not.toBeNull();
+    expect(genInfoPanelChildren).toHaveLength(12);
 
     assertTextFiled(
-      riskScorePanelChildren[2],
-      '**Category**: MIXER,US_GOV_BLOCKED',
+      genInfoPanelChildren[0],
+      '**First Transaction**: 17-Dec-2019',
     );
+
+    assertTextFiled(genInfoPanelChildren[1], '**Balance (ETH)**: 3933.801795');
+
+    assertTextFiled(genInfoPanelChildren[3], '**Risk Summary**');
+
+    assertTextFiled(genInfoPanelChildren[4], '**Risk Score**: High &#10071;');
+
+    assertTextFiled(genInfoPanelChildren[5], '**Category**: MIXER,SANCTIONED');
 
     assertTextFiled(
-      riskScorePanelChildren[3],
-      '**Intel**: tornado.cash,exploiter',
+      genInfoPanelChildren[6],
+      '**Tags**: tornado.cash,exploiter',
     );
+
+    assertTextFiled(genInfoPanelChildren[8], '**Illicit Funds**: 15.45%');
 
     assertTextFiled(
-      riskScorePanelChildren[4],
-      '**Social Media Reports**: No Reports',
+      genInfoPanelChildren[9],
+      '  **FAQ**: https://demystify.network/faq',
     );
-    assertTextFiled(riskScorePanelChildren[5], '**Illicit Funds**: 15.46%');
-    assertTextFiled(riskScorePanelChildren[6], '&#9889; Demystify.Network');
-
-    assertTextFiled(
-      riskScorePanelChildren[8],
-      '**Potentially Risky Transfers (ETH)**',
-    );
-
-    const incomeExpensePanel = children[2];
+    const incomeExpensePanel = children[3];
     expect(incomeExpensePanel).not.toBeNull();
     expect(incomeExpensePanel.type).toBe('panel');
 
     const incomeExpensePanelChildren: any = incomeExpensePanel.children;
     expect(incomeExpensePanelChildren).not.toBeNull();
-    expect(incomeExpensePanelChildren).toHaveLength(15);
+    expect(incomeExpensePanelChildren).toHaveLength(12);
 
     let incomeCount = 0;
     let expenseCount = 0;
+
     incomeExpensePanelChildren.forEach((element: any) => {
       expect(element).not.toBeNull();
-      expect(element.type).toBe('text');
-      if (element.value.startsWith('**Income**')) {
-        incomeCount += 1;
-      }
+      if (element.type === 'text') {
+        if (element.value.startsWith('**Income**')) {
+          incomeCount += 1;
+        }
 
-      if (element.value.startsWith('**Expense**')) {
-        expenseCount += 1;
+        if (element.value.startsWith('**Expense**')) {
+          expenseCount += 1;
+        }
       }
     });
 
     expect(incomeCount).toBe(2);
-    expect(expenseCount).toBe(3);
+    expect(expenseCount).toBe(2);
   });
 });
 
