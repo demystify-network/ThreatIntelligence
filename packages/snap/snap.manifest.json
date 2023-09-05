@@ -1,5 +1,5 @@
 {
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Threat Intel - Protect yourself from hacking, spamming & phishing - By https://demystify.network/",
   "proposedName": "Threat Intel",
   "repository": {
@@ -7,7 +7,7 @@
     "url": "https://github.com/demystify-network/ThreatIntelligence"
   },
   "source": {
-    "shasum": "rOOroVYIn0m/Ep2SsSB49YK3V7NDUzpuz7wj7wjFdqQ=",
+    "shasum": "3Vpf6m+UfbQNOtXKwegWQT5Tqt2nwBx+y+CvVcvIpxA=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
