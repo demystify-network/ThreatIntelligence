@@ -4,11 +4,30 @@ import { utils } from 'web3';
 import { getInsights } from './insights';
 
 export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
+  const hexChainId = await ethereum.request({ method: 'eth_chainId' });
+  const chainId = parseInt(`${hexChainId}`, 16);
+
+  let warnText = text('');
+  if (chainId !== 1) {
+    warnText = text('&#x270B; Ethereum Mainnet was used to generate below insights. Support for your selected chain coming soon.');
+  }
+
   const result = {
     insights: await getInsights(transaction),
   };
 
   const { insights } = result;
+
+  const { status } = insights;
+
+  if (status === 429) {
+    return {
+      content: panel([
+        text('You have hit max limit for free use. Please try again after some time.'),
+        text('To increase you usage limit write us at contact@demystify.network'),
+      ])
+    }
+  }
 
   const category = getCategory(insights.category);
 
@@ -69,6 +88,7 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
   return {
     content: panel([
       text('**General Information**'),
+      warnText,
       text(`**Account**: ${shortenAddress(transaction.to as string)}`),
 
       panel([

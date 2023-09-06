@@ -7,7 +7,7 @@
     "url": "https://github.com/demystify-network/ThreatIntelligence"
   },
   "source": {
-    "shasum": "fSYoxcUAJrXDojueuozAf2ZhFg3hgiKItFe7ibDoBF8=",
+    "shasum": "yvvqoHmp5+zA196NPgGt+AzB8EhB0vnmtbRuZ+81xaU=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
@@ -18,12 +18,8 @@
     }
   },
   "initialPermissions": {
-    "snap_dialog": {},
-    "endowment:rpc": {
-      "dapps": true,
-      "snaps": false
-    },
     "endowment:transaction-insight": {},
+    "endowment:ethereum-provider": {},
     "endowment:network-access": {}
   },
   "manifestVersion": "0.1"

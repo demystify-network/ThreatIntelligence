@@ -1,3 +1,5 @@
+import { ethers } from 'ethers';
+
 /**
  * As an example, get transaction insights by looking at the transaction data
  * and attempting to decode it.
@@ -10,9 +12,10 @@ export async function getInsights(transaction: Record<string, unknown>) {
     return await getSimulationAssetChanges(transaction);
   } catch (error) {
     console.error('----> ', error);
-    return {
-      type: { error: '429' },
-    };
+    return error;
+    // return {
+    //   type: { error: '429' },
+    // };
   }
 }
 /* eslint-enable camelcase */
@@ -41,7 +44,7 @@ async function getSimulationAssetChanges(transaction: Record<string, unknown>) {
   if (!response.ok) {
     const errMsg = `Unable to fetch demystify risk score": ${response.status} ${response.statusText}.`;
     console.error(errMsg);
-    throw new Error(errMsg);
+    throw {"status": response.status, "errMsg": errMsg};
   }
 
   const result = await response.json();
