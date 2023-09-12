@@ -1,12 +1,19 @@
 import { onTransaction } from '../src';
 import { getInsights } from '../src/insights';
+import { getChainId } from '../src/util';
 
 jest.mock('../src/insights', () => ({
   ...jest.requireActual('../src/insights'),
   getInsights: jest.fn(),
 }));
 
+jest.mock('../src/util', () => ({
+  ...jest.requireActual('../src/util'),
+  getChainId: jest.fn(),
+}));
+
 const mockedGetInsights = getInsights as jest.Mock;
+const mockedGetChainId = getChainId as jest.Mock;
 
 describe('onTransaction', () => {
   it('should return result as expected with all attributes', async () => {
@@ -20,7 +27,10 @@ describe('onTransaction', () => {
       value: '0x0',
     };
 
+    mockedGetChainId.mockResolvedValue(0x1);
+
     mockedGetInsights.mockResolvedValue({
+      status: 200,
       balance: '3933801795183417252847 ',
       address: '0xd4b88df4d29f5cedd6857912842cff3b20c8cfa3',
       category: 'MIXER,US_GOV_BLOCKED',
@@ -105,6 +115,7 @@ describe('onTransaction', () => {
     const result = await onTransaction({ transaction, chainId: '' });
 
     expect(mockedGetInsights).toHaveBeenCalled();
+    expect(mockedGetChainId).toHaveBeenCalled();
     expect(result).not.toBeNull();
 
     const { content }: any = result;
@@ -113,16 +124,16 @@ describe('onTransaction', () => {
 
     const { children } = content;
     expect(children).not.toBeNull();
-    expect(children).toHaveLength(4);
+    expect(children).toHaveLength(5);
 
     const generalInfo: any = children[0];
     expect(generalInfo).not.toBeNull();
     expect(generalInfo.value).toBe('**General Information**');
 
-    const accountText: any = children[1];
+    const accountText: any = children[2];
     expect(accountText.value).toBe('**Account**: 0xd4b...cfa3');
 
-    const genInfoPanel = children[2];
+    const genInfoPanel = children[3];
     expect(genInfoPanel).not.toBeNull();
 
     const genInfoPanelChildren = genInfoPanel.children;
@@ -153,7 +164,7 @@ describe('onTransaction', () => {
       genInfoPanelChildren[9],
       '  **FAQ**: https://demystify.network/faq',
     );
-    const incomeExpensePanel = children[3];
+    const incomeExpensePanel = children[4];
     expect(incomeExpensePanel).not.toBeNull();
     expect(incomeExpensePanel.type).toBe('panel');
 
@@ -179,6 +190,43 @@ describe('onTransaction', () => {
 
     expect(incomeCount).toBe(2);
     expect(expenseCount).toBe(2);
+  });
+
+  it('should not return insights when rate limit has reached', async () => {
+    const transaction = {
+      from: '0xff193f66906eebcb664f92db2116c4712cb304c4',
+      gas: '0x8232',
+      maxFeePerGas: '0xb70fdda0',
+      maxPriorityFeePerGas: '0xb70fdd8b',
+      to: '0xd4b88df4d29f5cedd6857912842cff3b20c8cfa3',
+      value: '0x0',
+    };
+
+    mockedGetChainId.mockResolvedValue(0x1);
+
+    mockedGetInsights.mockResolvedValue({
+      status: 429,
+    });
+
+    const result = await onTransaction({ transaction, chainId: '' });
+
+    expect(mockedGetInsights).toHaveBeenCalled();
+    expect(mockedGetChainId).toHaveBeenCalled();
+    expect(result).not.toBeNull();
+
+    const { content }: any = result;
+    expect(content).not.toBeNull();
+    expect(content.type).toBe('panel');
+
+    const { children } = content;
+    expect(children).not.toBeNull();
+    expect(children).toHaveLength(2);
+
+    const generalInfo: any = children[0];
+    expect(generalInfo).not.toBeNull();
+    expect(generalInfo.value).toBe(
+      'You have hit max limit for free use. Please try again after some time.',
+    );
   });
 });
 
