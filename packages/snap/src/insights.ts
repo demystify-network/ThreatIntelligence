@@ -9,11 +9,8 @@ export async function getInsights(transaction: Record<string, unknown>) {
   try {
     return await getSimulationAssetChanges(transaction);
   } catch (error) {
-    console.error('----> ', error);
+    console.error('Error while getting insights ', error);
     return error;
-    // return {
-    //   type: { error: '429' },
-    // };
   }
 }
 /* eslint-enable camelcase */
