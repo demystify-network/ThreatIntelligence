@@ -112,7 +112,7 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
         text(`**Tags**: ${naIfUndefined(insights.tags)}`),
         text(`**Social Media Reports**: ${socialMediaRep}`),
         text(`**Illicit Funds**: ${highRisk}`),
-        text(`  **FAQ**: https://demystify.network/faq`),
+        text(`  **FAQ**: https://demystify.network/faq.html`),
         divider(),
         text('**Supporting Data**'),
       ]),

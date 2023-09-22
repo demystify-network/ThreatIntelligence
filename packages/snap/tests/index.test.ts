@@ -162,7 +162,7 @@ describe('onTransaction', () => {
 
     assertTextFiled(
       genInfoPanelChildren[9],
-      '  **FAQ**: https://demystify.network/faq',
+      '  **FAQ**: https://demystify.network/faq.html',
     );
     const incomeExpensePanel = children[4];
     expect(incomeExpensePanel).not.toBeNull();
