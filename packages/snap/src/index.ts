@@ -2,13 +2,39 @@ import { OnTransactionHandler } from '@metamask/snaps-types';
 import { Text, divider, panel, text } from '@metamask/snaps-ui';
 import { utils } from 'web3';
 import { getInsights } from './insights';
+import { getChainId } from './util';
 
 export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
+  const hexChainId = await getChainId();
+  const chainId = parseInt(`${hexChainId}`, 16);
+
+  let warnText = text('');
+  if (chainId !== 1) {
+    warnText = text(
+      '&#x270B; Ethereum Mainnet was used to generate below insights. Support for your selected chain coming soon.',
+    );
+  }
+
   const result = {
     insights: await getInsights(transaction),
   };
 
   const { insights } = result;
+
+  const { status } = insights;
+
+  if (status === 429) {
+    return {
+      content: panel([
+        text(
+          'You have hit max limit for free use. Please try again after some time.',
+        ),
+        text(
+          'To increase you usage limit write us at contact@demystify.network',
+        ),
+      ]),
+    };
+  }
 
   const category = getCategory(insights.category);
 
@@ -69,6 +95,7 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
   return {
     content: panel([
       text('**General Information**'),
+      warnText,
       text(`**Account**: ${shortenAddress(transaction.to as string)}`),
 
       panel([
@@ -85,7 +112,7 @@ export const onTransaction: OnTransactionHandler = async ({ transaction }) => {
         text(`**Tags**: ${naIfUndefined(insights.tags)}`),
         text(`**Social Media Reports**: ${socialMediaRep}`),
         text(`**Illicit Funds**: ${highRisk}`),
-        text(`  **FAQ**: https://demystify.network/faq`),
+        text(`  **FAQ**: https://demystify.network/faq.html`),
         divider(),
         text('**Supporting Data**'),
       ]),

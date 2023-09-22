@@ -9,10 +9,8 @@ export async function getInsights(transaction: Record<string, unknown>) {
   try {
     return await getSimulationAssetChanges(transaction);
   } catch (error) {
-    console.error('----> ', error);
-    return {
-      type: { error: '429' },
-    };
+    console.error('Error while getting insights ', error);
+    return error;
   }
 }
 /* eslint-enable camelcase */
@@ -41,7 +39,7 @@ async function getSimulationAssetChanges(transaction: Record<string, unknown>) {
   if (!response.ok) {
     const errMsg = `Unable to fetch demystify risk score": ${response.status} ${response.statusText}.`;
     console.error(errMsg);
-    throw new Error(errMsg);
+    throw { status: response.status, errMsg };
   }
 
   const result = await response.json();

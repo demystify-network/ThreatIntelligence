@@ -1,6 +1,6 @@
 {
   "name": "threat-intel-snap",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Threat Intel Snap by Demystify Network protects metamask wallet users, by providing timely risk intelligence, right before you approve the transaction in Metamask.",
   "repository": {
     "type": "git",
